@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Gema para temas Boostrap
+gem 'twitter-bootstrap-rails'
+
 # Gema para autenticacion de usuarios
 gem 'devise'
 

@@ -1,34 +1,61 @@
-<h2>Registro de Usuarios</h2>
+<div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title">Registro de Nuevo Usuario</div>
+            <div style="float:right; font-size: 85%; position: relative; top:-10px"><%= link_to "Entrar", new_session_path(resource_name) %> </a></div>
+        </div>  
+        <div class="panel-body" >
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :id => "signupform", :class => "form-horizontal", :role => "form"} ) do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+              <div id="signupalert" class="alert alert-danger">
+                  <p>Error:</p>
+                  <span><%= devise_error_messages! %></span>
+              </div>
 
-    <div class="field">
-    <%= f.label :username, "Nombre de Usuario:" %><br />
-    <%= f.text_field :username %>
-  </div>
+            <div class="form-group">
+              <%= f.label :email, "Email:", :class => "col-md-3 control-label" %>
+              <div class="col-md-9">
+                <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Dirección Email" %>
+              </div>
+            </div>
+                
+            <div class="form-group">
+              <%= f.label :username, "Usuario:", :class => "col-md-3 control-label" %>
+              <div class="col-md-9">
+                 <%= f.text_field :username, :class => "form-control", :placeholder => "Nombre de Usuario" %>
+              </div>
+            </div>
 
-  <div class="field">
-    <%= f.label :password, "Contraseña:" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+            <div class="form-group">
+              <%= f.label :password, "Contraseña:", :class => "col-md-3 control-label" %>
+              <div class="col-md-9">
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Contraseña" %>
+              </div>
+            </div>
+                
+            <div class="form-group">
+              <%= f.label :password_confirmation, "Confirmar Contraseña:", :class => "col-md-3 control-label" %>
+              <div class="col-md-9">
+                <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :placeholder => "Confirmar Contraseña"  %>
+              </div>
+            </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirmar Contraseña:" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+            <div class="form-group">
+                <!-- Button -->                                        
+                <div class="col-md-offset-3 col-md-9">
+                    <%= f.submit "Registrar", :id => "btn-signup", :class => "btn btn-info" %>
+                </div>
+            </div>
+                     
+        <% end %>
 
-<%= render "users/shared/links" %>
+    </div>
+  </div>       
+</div> 
+
+

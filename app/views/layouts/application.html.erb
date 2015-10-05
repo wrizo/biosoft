@@ -8,7 +8,22 @@
 </head>
 <body>
 
+<% if notice %>
+  <p id="flash" class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p id="flash" class="alert alert-danger"><%= alert %></p>
+<% end %>
+
 <%= yield %>
 
 </body>
 </html>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#flash').remove();
+  }, 3000);
+ })
+</script>
