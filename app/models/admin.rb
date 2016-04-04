@@ -3,9 +3,8 @@ class Admin < ActiveRecord::Base
 	attr_accessor :signin
 
 	# Include default devise modules. Others available are:
-	# :confirmable, :lockable, :timeoutable and :omniauthable
-	devise :database_authenticatable, :registerable,
-	         :recoverable, :rememberable, :trackable, :validatable
+	# :confirmable, :lockable, :timeoutable and :omniauthable,  :registerable, :recoverable,
+	devise :database_authenticatable, :rememberable, :trackable, :validatable
 
 	validates :username, :uniqueness => {:case_sensitive => false}
 	# Only allow letter, number, underscore and punctuation.s

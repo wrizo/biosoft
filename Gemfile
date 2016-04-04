@@ -1,6 +1,12 @@
 source 'https://rubygems.org'
 
+gem 'angularjs-rails'
+
+gem 'bootstrap-sass'
+
 # Gema para temas Boostrap
+gem 'therubyracer'
+gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 
 # Gema para autenticacion de usuarios
